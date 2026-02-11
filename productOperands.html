@@ -1,0 +1,65 @@
+productOperands.html
+
+<!DOCTYPE html> 
+<html>
+<title>Finding operands for product-HitKu</title> 
+<head> 
+
+   <script> 
+let dispMsg="hitku: ";
+let product=15431,a=0,b=0,newA=0,newB=1,extra=0;
+
+function productOprnds() { 
+let productInput= document.getElementById("productInput"); 
+product= Number(productInput.value); 
+document.getElementById('calcBtn').toggleAttribute('disabled');
+
+//////////////
+
+newA=product;
+while(newA>newB){
+if(a%2==1){
+extra+=b;
+}
+a=Math.floor(newA);
+b=newB;
+newA/=2;newB*=2;
+}
+if(newB<a){
+if(a%2==1){extra+=b;}
+a=newB;
+b=Math.floor(newA);
+}
+let n=1,x=a,y=b;
+let diff=x-y;
+while(extra>0){
+y--;x++;
+extra=extra+diff+n;
+while(extra-y>=0){
+extra-=y;x++;diff++;
+}
+n+=2;
+}
+
+
+
+////////////
+dispMsg+="Multiplier = "+x+",Multiplicand = "+y;
+document.getElementById('calcBtn').toggleAttribute('disabled');
+ document.getElementById("result").innerHTML = dispMsg; 
+dispMsg="";
+      } 
+   </script>
+
+
+</head> 
+<body>
+  
+ <br><br>Product operands<br><br>
+Product : <input type="number" id="productInput" placeholder="Enter Product"> <br><br>
+   <button  id="calcBtn" onclick = "productOprnds()"> Find Operands </button> 
+   <p> 
+      <div id = "result1"> </div> <br> <div id = "result"> </div> 
+   </p> 
+</body> 
+</html>
