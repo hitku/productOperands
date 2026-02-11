@@ -30,13 +30,13 @@ if(a%2==1){extra+=b;}
 a=newB;
 b=Math.floor(newA);
 }
-let n=1,x=a,y=b;
-let diff=x-y;
+let n=1;
+let diff=a-b;
 while(extra>0){
-y--;x++;
+b--;a++;
 extra=extra+diff+n;
-while(extra-y>=0){
-extra-=y;x++;diff++;
+while(extra-b>=0){
+extra-=b;a++;diff++;
 }
 n+=2;
 }
@@ -44,7 +44,7 @@ n+=2;
 
 
 ////////////
-dispMsg+="Multiplier = "+x+",Multiplicand = "+y;
+dispMsg+="Multiplier = "+a+",Multiplicand = "+b;
 document.getElementById('calcBtn').toggleAttribute('disabled');
  document.getElementById("result").innerHTML = dispMsg; 
 dispMsg="";
