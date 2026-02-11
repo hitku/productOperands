@@ -19,7 +19,7 @@ public class ProductOperands{
 			b=Math.floor(newA);
 		}	
 		int n=1; 
-		int diff=a-b;		
+		int diff=(int) (a-b);		
 		while(extra>0){
 			b--;
 			a++;
