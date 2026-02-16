@@ -7,7 +7,7 @@ productOperands.html
 
    <script> 
 let dispMsg="hitku: ";
-let product=15431,a=0,b=0,newA=0,newB=1,extra=0;
+let product=15431,a=0,b=1,x=0,y=1,extra=0;
 
 function productOprnds() { 
 let productInput= document.getElementById("productInput"); 
@@ -16,32 +16,44 @@ document.getElementById('calcBtn').toggleAttribute('disabled');
 
 //////////////
 
-newA=product;
-while(newA>newB){
-if(a%2==1){
-extra+=b;
-}
-a=Math.floor(newA);
-b=newB;
-newA/=2;newB*=2;
-}
-if(newB<a){
-if(a%2==1){extra+=b;}
-a=newB;
-b=Math.floor(newA);
-}
-let n=1;
-let diff=a-b;
-while(extra>0){
-b--;a++;
-extra=extra+diff+n;
-while(extra-b>=0){
-extra-=b;a++;diff++;
-}
-n+=2;
-}
 
-
+x=product;
+		while(x>y){			
+			if(a%2==1){
+				extra+=b;
+			}
+			a=Math.floor(x);
+			b=y;	
+			x/=2;	
+			y*=2;	
+		}
+		if(y>a){
+			if(a%2==1){
+				extra+=b;
+			}
+			a=Math.floor(x);
+			b=y;
+		}else{
+			let temp =a;
+			a=b;
+			b=temp;
+		}					
+		if(extra>0 && b%2==0){
+			b--;
+			extra=extra+a;
+			while(extra-b>=0){
+				extra-=b;
+				a++;
+			}
+		}
+		while(extra>0 && b>a){
+			b-=2;
+			extra=extra+a+a;
+			while(extra-b>=0){
+				extra-=b;
+				a++;
+			}
+		}		
 
 ////////////
 dispMsg+="Multiplier = "+a+",Multiplicand = "+b;
