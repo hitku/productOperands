@@ -11,6 +11,9 @@ let prodInput=document.getElementById("productInput");
 j=Number(prodInput.value);
 document.getElementById('calcBtn').toggleAttribute('disabled');
 d=j;
+if(d%2==0 && d%8!=0){
+   j*=2;
+}
 while(j>0){
 hit++;
 j-=hitO;
@@ -26,8 +29,12 @@ j-=hitO;
 hitO+=2;
 }
 }
-dispMsg+="Multiplier = "+(hit+ku)+",Multiplicand = "+(hit-ku);
-document.getElementById('calcBtn').toggleAttribute('disabled');
+ if(d%2==0 && d%8!=0){
+  dispMsg+="Multiplier = "+(hit+ku)/2+",Multiplicand = "+(hit-ku);
+ }else{
+  dispMsg+="Multiplier = "+(hit+ku)+",Multiplicand = "+(hit-ku);
+ }
+ document.getElementById('calcBtn').toggleAttribute('disabled');
  document.getElementById("result").innerHTML = dispMsg; 
 dispMsg="";
       } 
