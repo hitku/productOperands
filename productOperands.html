@@ -5,7 +5,7 @@
 <head> 
 <script> 
 function productOprnds() {
-let hit=0,ku=0,d,j,hitO=1,kuO=1;
+let hit=1,ku=1,d,j,h=0,k=0;
 let dispMsg="HitKu: ";
 let prodInput=document.getElementById("productInput");
 j=Number(prodInput.value);
@@ -16,24 +16,29 @@ if(d%2==0 && d%8!=0){
 }
 while(j!=0){
    while(j>0){
-    hit++;
-    j-=hitO;
-    hitO+=2;
+    j-=hit;
+    hit+=2;
    }
    while(j<0){	
-    ku++;
-    j+=kuO;
-    kuO+=2;
+    j+=ku;
+    ku+=2;
    }
   }
- if(d%2==0 && d%8!=0){
-  dispMsg+="Multiplier = "+(hit+ku)/2+",Multiplicand = "+(hit-ku);
- }else{
-  dispMsg+="Multiplier = "+(hit+ku)+",Multiplicand = "+(hit-ku);
- }
+  h=hit+ku-2;
+  k=hit-ku;
+  if(h>0){
+   h/=2;
+   if(d%2==0 && d%8!=0){
+       h/=2;
+   }
+  }
+  if(k>0){
+   k/=2;
+  }
+  dispMsg+="Multiplier = "+h+", Multiplicand = "+k;
  document.getElementById('calcBtn').toggleAttribute('disabled');
  document.getElementById("result").innerHTML = dispMsg; 
-dispMsg="";
+ dispMsg="";
       } 
    </script>
 </head>
