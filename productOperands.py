@@ -1,22 +1,25 @@
 #productOperands
-hit=0
-ku=0
-d=31923
+hit=1
+ku=1
+d=529
 j=d
-hitO=1
-kuO=1
+h=0
+k=0
 if d%2==0 and not d%8==0:
  j*=2
 while not j==0:
  while j>0:
-  hit+=1
-  j-=hitO
-  hitO+=2
+  j-=hit
+  hit+=2
  while j<0:
-  ku+=1
-  j+=kuO
-  kuO+=2
-if d%2==0 and not d%8==0:
- print("HitKu:: Product =", d, " Multiplier =", (hit+ku)/2, " Multiplicand =", hit-ku)
-else:
- print("HitKu:: Product =", d, " Multiplier =", hit+ku, " Multiplicand =", hit-ku)
+  j+=ku
+  ku+=2
+h=hit+ku-2
+k=hit-ku
+if h>0:
+ h/=2
+ if d%2==0 and not d%8==0:
+  h/=2
+if k>0:
+ k/=2
+ print("HitKu:: Product =", d, " Multiplier =", h, " Multiplicand =", k)
