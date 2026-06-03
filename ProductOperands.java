@@ -5,19 +5,16 @@ public class productOperands{
   if(d%2==0 && d%8!=0){
     j*=2;
   }
-  while(j>0){
-   hit++;
-   j-=hitO;
-   hitO+=2;
-  }
-  while(j<0){	
-   ku++;
-   j+=kuO;
-   kuO+=2;
+  while(j!=0){
    while(j>0){
     hit++;
     j-=hitO;
     hitO+=2;
+   }
+   while(j<0){	
+    ku++;
+    j+=kuO;
+    kuO+=2;
    }
   }
   if(d%2==0 && d%8!=0){
