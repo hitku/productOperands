@@ -1,0 +1,45 @@
+<!--productOperandsOddPrimesV1.html -->
+<!DOCTYPE html> 
+<html>
+<title>Finding operands for product-HitKu</title> 
+<head> 
+<script> 
+function productOprnds() {
+let hit=1,ku=1,d=529;
+let dispMsg="HitKu: ";
+let prodInput=document.getElementById("productInput");
+d=Number(prodInput.value);
+document.getElementById('calcBtn').toggleAttribute('disabled');
+ if(d%2!=0){
+			while(d!=0){
+				while(d>0){
+					d-=hit;
+					hit+=2;
+				}
+				while(d<0){	
+					d+=ku;
+					ku+=2;
+				}
+			}
+  dispMsg+="Multiplier = "+        ((hit+ku-2)/2)+",Multiplicand = "+((hit-ku)/2);
+		}else{
+			dispMsg+="INVALID INPUT: only product of odd prime operands";
+		}	
+document.getElementById('calcBtn').toggleAttribute('disabled');
+ document.getElementById("result").innerHTML = dispMsg; 
+dispMsg="";
+      } 
+   </script>
+</head>
+<body>
+ <br><br>Product operands
+<br><br>
+Product : <input type="number" id="productInput" placeholder="Enter Product">
+ <br><br>
+   <button  id="calcBtn" onclick = "productOprnds()"> Find Operands </button>  
+  <p> 
+   <div id = "result1"> </div> <br> 
+<div id = "result"> </div> 
+   </p> 
+</body> 
+</html>
