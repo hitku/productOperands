@@ -1,4 +1,4 @@
-public class productOperandsOddPrimesV1{
+public class ProductOperandsOddPrimesV1{
 	public static void main(String... hitku){
 		double hit=1,ku=1,d=529;
 		if(hitku.length>0){
